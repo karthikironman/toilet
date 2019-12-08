@@ -65,5 +65,13 @@ app.get('/',(req,res)=>{
      else res.send("no toilet "+ req.params.no)
    updateToiletStatus(number,req.params.sts,res);
   })
+  app.get('/:no/:sts',(req,res)=>{
+    var number = false;
+    if(req.params.no === '0') number ='5de7dae71c9d440000f6747f';
+    else if(req.params.no === '1') number ='5de7dafc1c9d440000f67480';
+    else if(req.params.no === '2') number ='5de7db1fe3acc348801fcf6a';
+    else res.send("no toilet "+ req.params.no)
+  updateToiletStatus(number,req.params.sts,res);
+ })
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`listening to the port ${port}`));
